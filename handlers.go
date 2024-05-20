@@ -16,6 +16,7 @@ func init() {
 	rand.Seed(time.Now().UnixNano())
 }
 
+// GetUrl is used for fetching back the original url from short url
 func GetUrl(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -27,20 +28,21 @@ func GetUrl(w http.ResponseWriter, r *http.Request) {
 	url := vars["ShortURL"]
 
 	for key, value := range storage {
-		if value == url {
+		if key == url {
 			found = true
-			originalUrl = key
+			originalUrl = value
 			break
 		}
 	}
 	if found {
-		fmt.Print(originalUrl)
+		fmt.Fprintf(w, originalUrl)
 	} else {
-		fmt.Print("Not Available")
+		fmt.Fprintf(w, "Not Available")
 	}
 
 }
 
+// UpdateUrl is used for converting the original url into short url
 func UpdateUrl(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -57,7 +59,7 @@ func UpdateUrl(w http.ResponseWriter, r *http.Request) {
 	mu.Lock()
 	storage[shortCode] = url
 	mu.Unlock()
-	fmt.Fprintf(w, "Shortened URL: http://localhost:8080/%s", shortCode)
+	fmt.Fprintf(w, "Shortened URL: http://localhost:8080/url/%s", shortCode)
 }
 
 func generateShortCode() string {
