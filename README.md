@@ -1,29 +1,44 @@
-URL Shortener
-A simple URL shortener service that generates a short URL by taking a random 6-character string from a predefined character set.\n
+#URL Shortener
 
-Features
-Shorten URLs: Convert long URLs into short ones.
-Retrieve Original URLs: Get the original URL from a shortened URL.
-Top Domains: Display the top 3 domains by the number of URLs shortened.
+This service helps you transform long, unwieldy URLs into shorter, more manageable links. Perfect for sharing on social media, emails, or anywhere character count is limited.
 
+##Features
+
+###Shorten URLs: Easily convert lengthy URLs into concise, easy-to-share short links.
+###Retrieve Original URLs: Access the original webpage from a shortened URL with a single click.
+###Top Domains: Discover the top 3 domains with the most shortened URLs, providing insights into user trends.
 Description
-This URL shortener service allows users to shorten long URLs into shorter, more manageable links. The short URL is generated using a random 6-character string from a predefined character set. The service supports basic operations such as creating short URLs and redirecting to the original URLs.
 
+This URL shortener takes the hassle out of managing long URLs. It creates shorter, 6-character random strings from a predefined set of characters to represent the original URL. The service offers basic functionalities:
+
+Shorten URLs: Generate shortened links for any valid URL.
+Redirect: Clicking on a shortened URL automatically redirects you to the original webpage.
 Installation
+
+For developers who want to contribute or run the service locally, follow these steps:
+
 Clone the repository:
+
 git clone https://github.com/yourusername/url-shortener.git
+Navigate to the directory:
+
 cd url-shortener
-Install the dependencies:
+Install dependencies:
+
 go build -o url-shortener
 Run the application:
-./url-shortener
 
-Creating short url:
-Use this curl command for post api :
+./url-shortener
+Creating a Short URL
+
+Here's how to create a shortened URL using the provided API (for developers):
+
+POST Request (using curl):
+
 curl --location 'http://localhost:8000/url' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'url= https://example.com/{sample}'
+--data-urlencode 'url=https://example.com/{sample}'
+GET Request (using curl) to access the original URL:
 
-Use this curl command for get api :
 curl --location 'http://localhost:8000/url/{shorturl}'
-
+Replace {shorturl} with the actual shortened URL you receive in the response.
