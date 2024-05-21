@@ -1,14 +1,14 @@
-#URL Shortener
+# URL Shortener
 
-This service helps you transform long, unwieldy URLs into shorter, more manageable links. Perfect for sharing on social media, emails, or anywhere character count is limited.
+This service helps you transform long, unwieldy URLs into shorter, more manageable links. Perfect for sharing on social media, emails, or anywhere the character count is limited.
 
-##Features
+## Features
 
-###Shorten URLs: Easily convert lengthy URLs into concise, easy-to-share short links.
-###Retrieve Original URLs: Access the original webpage from a shortened URL with a single click.
-###Top Domains: Discover the top 3 domains with the most shortened URLs, providing insights into user trends.
-Description
+1 ### Shorten URLs: Easily convert lengthy URLs into concise, easy-to-share short links.
+2 ### Retrieve Original URLs: Access the original webpage from a shortened URL with a single click.
+3 ### Top Domains: Discover the top 3 domains with the most shortened URLs, providing insights into user trends.
 
+##Description
 This URL shortener takes the hassle out of managing long URLs. It creates shorter, 6-character random strings from a predefined set of characters to represent the original URL. The service offers basic functionalities:
 
 Shorten URLs: Generate shortened links for any valid URL.
